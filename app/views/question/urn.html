@@ -1,0 +1,42 @@
+{% extends "layout/layout-question.html" %}
+
+{% block question %}
+  {{ govukRadios({
+    idPrefix: "have-urn",
+    name: "have-urn",
+    fieldset: {
+      legend: {
+        text: "Do you have your unique reference number?",
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--xl"
+      }
+    },
+    hint: {
+      text: "You'll find this on any correspondence we've sent you about your grant. It's 9 numbers long and begins with a 1."
+    },
+    items: [{
+        value: "yes",
+        text: "Yes",
+        checked: (data['have-urn'] == 'yes'),
+        conditional: {
+          html: govukInput({
+            id: "urn",
+            name: "urn",
+            classes: "govuk-input--width-10" + (" govuk-input--error" if errors == 'urn'),
+            errorMessage: errors == 'urn' and {
+              text: "Enter your unique reference number in the correct format"
+            },
+            label: {
+              text: "Unique reference number",
+              classes: "govuk-!-font-weight-bold"
+            },
+            value: data.urn
+          })
+        }
+      }, {
+        value: "no",
+        text: "No",
+        checked: (data['have-urn'] == 'no')
+      }]
+  }) }}
+{% endblock %}

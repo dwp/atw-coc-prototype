@@ -1,0 +1,36 @@
+{% extends "layout/layout-question.html" %}
+
+{% block question %}
+  {{ govukRadios({
+    idPrefix: "change-name",
+    name: "change-name",
+    fieldset: {
+      legend: {
+        text: "Has your name changed since our last contact with you?",
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--xl"
+      }
+    },
+    items: [{
+        value: "yes",
+        text: "Yes",
+        checked: (data['change-name'] == 'yes'),
+        conditional: {
+          html: govukInput({
+            id: "old-full-name",
+            name: "old-full-name",
+            label: {
+              text: "What was your previous full name?",
+              classes: "govuk-!-font-weight-bold"
+            },
+            classes: "govuk-!-width-two-thirds",
+            value: data['old-full-name']
+          })
+        }
+      }, {
+        value: "no",
+        text: "No",
+        checked: (data['change-name'] == 'no')
+      }]
+  }) }}
+{% endblock %}

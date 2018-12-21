@@ -1,0 +1,74 @@
+{% extends "layout/layout.html" %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl govuk-!-margin-top-4 govuk-!-margin-bottom-2">Get help at work if you’re disabled or have a health condition (Access to Work)</h1>
+  </div>  
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    <h2 class="govuk-heading-m">Report a change of circumstances</h2>
+
+    <p>If you’re getting support from Access to Work you need to report changes to:</p>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <li>your disability or health condition (physical or mental)</li> 
+      <li>your home or work address - if you get travel to work support</li>
+      <li>your employer, job role or working pattern</li>
+    </ul>
+
+    <p>You can report a change of circumstances online or by phone.</p>
+
+    <p>You will only need to provide your name, address, date of birth and what it is that's changed.</p>
+
+    <p>It would help if you could provide your unique reference number. You’ll find this on any correspondence we've sent you about your grant.</p>
+
+    <h2 class="govuk-heading-m">What happens when you report a change of circumstances</h2>
+
+    <p>An Access to Work adviser will contact you to discuss the changes. They may request further information about your condition, depending on your circumstances. They may also contact your employer.</p>
+
+    {{ govukButton({
+      text: "Report a change of circumstances online",
+      href: firstQuestion,
+      classes: "govuk-button--start  govuk-!-margin-bottom-9"
+    }) }}
+
+    <h2 class="govuk-heading-m">Report a change of circumstances by phone</h2>
+    <p>You can report a change of circumstances by calling the Access to Work helpline. Make sure you have all the necessary details with you when you call.</p>
+
+    <div style="padding-left: 15px; border-left: 1px grey solid">
+      <h3 class="govuk-heading-s govuk-!-margin-bottom-0">Access to Work helpline</h3>
+      <p class="govuk-body">
+        Telephone: 0800 121 7479<br />
+        Textphone: 0800 121 7579<br />
+        <a class="govuk-link">NGT text relay</a> (if you cannot hear or speak on the phone): 18001 then<br /> 0800 121 7479<br />
+        Monday to Friday, 8am to 7.30pm<br />
+        <a class="govuk-link">Find out about call charges</a>
+      </p>
+    </div>
+
+    <h3 class="govuk-heading-s">British Sign Language (BSL) video relay service</h3>
+    <p>To use this you must:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>first <a class="govuk-link">check you can use the service</a></li> 
+      <li><a class="govuk-link">go to the video relay service</a></li>
+    </ul>
+
+    <p>Monday to Friday, 8am to 7.30pm</p>
+
+    <h3 class="govuk-heading-s">Alternative formats</h3>
+    <p>Call the Access to Work number to ask for alternative formats, such as braille, large print or audio CD.</p>
+
+    <h2 class="govuk-heading-m">Complaints</h2>
+    <p>You can contact Access to Work to complain if you are not happy with how your case has been handled.</p>
+
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+    
+  </div>
+</div>
+{% endblock %}

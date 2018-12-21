@@ -1,0 +1,59 @@
+{% extends "layout/layout-question.html" %}
+
+{% block question %}
+  {% call govukFieldset({
+      legend: {
+        text: "What is your home address?",
+        classes: "govuk-fieldset__legend--xl",
+        isPageHeading: true
+      }      
+    }) %}
+
+      {{ govukInput({
+        label: {
+          html: 'Building and street <span class="govuk-visually-hidden">line 1 of 2</span>'
+        },
+        classes: "govuk-!-width-one-half" + (" govuk-input--error" if errors | includes('address-line-1')),
+        errorMessage: errors | includes('address-line-1') and {
+          text: "Enter the first line of your address"
+        },
+        id: "address-line-1",
+        name: "address-line-1",
+        value: data['address-line-1']
+      }) }}
+
+      {{ govukInput({
+        label: {
+          html: '<span class="govuk-visually-hidden">Building and street line 2 of 2</span>'
+        },
+        classes: "govuk-!-width-one-half",
+        id: "address-line-2",
+        name: "address-line-2",
+        value: data['address-line-2']
+      }) }}
+
+      {{ govukInput({
+        label: {
+          text: "Town or city"
+        },
+        classes: "govuk-!-width-one-half",
+        id: "address-town",
+        name: "address-town",
+        value: data['address-town']
+      }) }}
+
+      {{ govukInput({
+        label: {
+          text: "Postcode"
+        },
+        classes: "govuk-!-width-one-quarter" + (" govuk-input--error" if errors | includes('address-postcode')),
+        errorMessage: errors | includes('address-postcode') and {
+          text: "Enter your postcode"
+        },
+        id: "address-postcode",
+        name: "address-postcode",
+        value: (data.postcode or data['address-postcode'])
+      }) }}
+
+    {% endcall %}
+{% endblock %}

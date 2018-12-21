@@ -1,0 +1,51 @@
+{% extends "layout/layout-question.html" %}
+
+{% block question %}
+  {{ govukCheckboxes({
+    idPrefix: "changes",
+    name: "changes",
+    fieldset: {
+      legend: {
+        text: "What has changed?",
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--xl"
+      }
+    },
+    hint: {
+      text: "Select all that apply."
+    },
+    items: [{
+      value: "Your name",
+      text: "Your name",
+      checked: true if 'Your name' in data.changes
+    }, {
+      value: "Your address",
+      text: "Your address",
+      checked: true if 'Your address' in data.changes
+    }, {
+      value: "Your contact details",
+      text: "Your contact details",
+      checked: true if 'Your contact details' in data.changes
+    }, {
+      value: "Your payee details",
+      text: "Your payee details",
+      checked: true if 'Your payee details' in data.changes
+    }, {
+      value: "Your job (where you work, what you do or your working hours)",
+      text: "Your job (where you work, what you do or your working hours)",
+      checked: true if 'Your job (where you work, what you do or your working hours)' in data.changes
+    }, {
+      value: "The cost of your support",
+      text: "The cost of your support",
+      checked: true if 'The cost of your support' in data.changes
+    }, {
+      value: "Your conditions or disabilities",
+      text: "Your conditions or disabilities",
+      checked: true if 'Your conditions or disabilities' in data.changes
+    }, {
+      value: "Your travel arrangements",
+      text: "Your travel arrangements",
+      checked: true if 'Your travel arrangements' in data.changes
+    }]
+  }) }}
+{% endblock %}

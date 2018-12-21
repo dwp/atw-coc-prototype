@@ -1,0 +1,12 @@
+{
+    "v1" : [
+        "index",
+        "question/name",
+        "question/date-of-birth",
+        "question/address",
+        "question/urn",
+        "question/changes",
+        "submit",
+        "thank-you"
+    ]
+}

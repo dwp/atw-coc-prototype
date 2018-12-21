@@ -1,0 +1,36 @@
+{% extends "layout/layout-question.html" %}
+
+{% block question %}
+  {{ govukRadios({
+    idPrefix: "change-job",
+    name: "change-job",
+    fieldset: {
+      legend: {
+        text: "Has your job changed since our last contact with you?",
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--xl"
+      }
+    },
+    items: [{
+        value: "yes",
+        text: "Yes",
+        checked: (data['change-job'] == 'yes'),
+        conditional: {
+          html: govukInput({
+            id: "new-job",
+            name: "new-job",
+            label: {
+              text: "What is your new job title?",
+              classes: "govuk-!-font-weight-bold"
+            },
+            classes: "govuk-!-width-two-thirds",
+            value: data['new-job']
+          })
+        }
+      }, {
+        value: "no",
+        text: "No",
+        checked: (data['change-job'] == 'no')
+      }]
+  }) }}
+{% endblock %}
