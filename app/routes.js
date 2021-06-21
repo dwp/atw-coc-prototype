@@ -3,6 +3,9 @@ const router = express.Router();
 const radioButtonRedirect = require('radio-button-redirect')
 router.use(radioButtonRedirect)
 
+require('./views/current/stencil-1/_routes.js')(router);
+// the journeys.json file is causing conflicts with the journey in 'current', to get 'current' working delete the bellow. This will remove the validation in ‘question’
+
 const fs = require('fs');
 const path = require('path');
 
