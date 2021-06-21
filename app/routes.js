@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const moment = require('moment');
+const radioButtonRedirect = require('radio-button-redirect')
+router.use(radioButtonRedirect)
+
 const fs = require('fs');
 const path = require('path');
 
@@ -98,5 +100,7 @@ router.get('/*/submit', (req, res, next) => {
     res.locals.dob = moment(`${res.locals.data['dob-year']}-${res.locals.data['dob-month']}-${res.locals.data['dob-day']}`, 'YYYY-MM-DD').format('D MMMM YYYY');
     next();
 })
+
+
 
 module.exports = router
